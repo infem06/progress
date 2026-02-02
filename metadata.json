@@ -1,0 +1,7 @@
+{
+  "name": "치료일지생성기",
+  "description": "인공지능 기반 치료일지 및 이용자 관리 시스템",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
