@@ -2,8 +2,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Patient, Diagnosis } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 /**
  * 5일치 치료 일지 일괄 생성
  * 요청하신 특정 양식(*제목, *상담내용)을 줄바꿈까지 포함하여 엄격히 준수합니다.
@@ -13,6 +11,8 @@ export const generateFiveDayLogs = async (
   activityInput: string,
   startDate: string
 ) => {
+  // Always create a new GoogleGenAI instance right before making an API call
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const model = "gemini-3-flash-preview";
   
   const prompt = `
@@ -86,6 +86,8 @@ export const generateInterimAssessment = async (
   goals: string[],
   diagnosis: string
 ) => {
+  // Always create a new GoogleGenAI instance right before making an API call
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const model = "gemini-3-flash-preview";
   const prompt = `작업치료사로서 중간평가를 작성하세요.\n진단: ${diagnosis}\n목표: ${goals.join(", ")}\n초기평가: ${initialAssessment}`;
   try {
@@ -100,6 +102,8 @@ export const generateFinalAssessment = async (
   goals: string[],
   diagnosis: string
 ) => {
+  // Always create a new GoogleGenAI instance right before making an API call
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const model = "gemini-3-flash-preview";
   const prompt = `작업치료사로서 종결평가를 작성하세요.\n진단: ${diagnosis}\n목표: ${goals.join(", ")}`;
   try {

@@ -15,9 +15,10 @@
             overflow-x: hidden;
         }
     </style>
-    <!-- 환경 변수 에러 방지를 위한 shim -->
+    <!-- 환경 변수 정의 에러 방지 -->
     <script>
-      window.process = window.process || { env: { API_KEY: "" } };
+      if (!window.process) window.process = { env: {} };
+      if (!window.process.env) window.process.env = {};
     </script>
 <script type="importmap">
 {
@@ -35,7 +36,6 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
     <div id="root"></div>
-    <!-- 앱 진입점 실행 -->
     <script type="module" src="./index.tsx"></script>
 <script type="module" src="/index.tsx"></script>
 </body>
