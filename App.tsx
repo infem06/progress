@@ -5,8 +5,8 @@ import {
   UserPlus, ArrowLeft, Loader2, Trash2, Edit3, LogOut, Sparkles,
   CalendarDays, ChevronDown, ChevronUp, Download, Upload, ShieldCheck
 } from 'lucide-react';
-import { Patient, Diagnosis, DisabilitySeverity, Gender, TherapyLog, User, SuspensionRange } from './types.ts';
-import { generateFiveDayLogs } from './services/geminiService.ts';
+import { Patient, Diagnosis, DisabilitySeverity, Gender, TherapyLog, User, SuspensionRange } from './types';
+import { generateFiveDayLogs } from './services/geminiService';
 
 export default function App() {
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'error'>('saved');
